@@ -19,7 +19,7 @@ echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
 <summary>Screenshot</summary>
 <p>
 
-<img src=""> 
+<img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%203/Lab/1.jpg"> 
 
 </p>
 </details>
