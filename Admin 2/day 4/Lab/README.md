@@ -78,6 +78,8 @@ vi /etc/hosts and replace the old hostname with the new hostname there too
 
 --- 
 
+### Part 2 [Users & Group permissions]:
+
 1. Using the useradd command, add accounts for the following users in your system: user1, user2, user3, user4, user5, user6 and user7. Remember to give each user a password.
 
 useradd.sh
