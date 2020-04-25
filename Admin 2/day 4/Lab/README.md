@@ -35,7 +35,7 @@ select the wifi network, select manual instead of automaitc then select IPV4 con
 <details><summary>nmtui preview</summary>
 <p>
 
-<img src="">
+<img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%204/Lab/Manualnmtui.png">
 
 </p>
 </details>
@@ -97,7 +97,7 @@ sudo tail /etc/passwd
 <details><summary>/etc/passwd after useradd</summary>
 <p>
 
-<img src="">
+<img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%204/Lab/useradd.png">
 
 </p>
 </details>
@@ -137,7 +137,7 @@ sudo tail /etc/group
 <details><summary>/etc/group after usermod</summary>
 <p>
 
-<img src="">
+<img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%204/Lab/usermod.png">
 
 </p>
 </details>
@@ -157,7 +157,7 @@ sudo chgrp web web/
 <details><summary>ls -l showing dirs with their associated groups</summary>
 <p>
 
-<img src="">
+<img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%204/Lab/chgrp.png">
 
 </p>
 </details>
@@ -172,7 +172,7 @@ sudo chmod -R 770 *
 <details><summary>ls -l after chmod</summary>
 <p>
 
-<img src="">
+<img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%204/Lab/chmod%20770.png">
 
 </p>
 </details>
