@@ -9,7 +9,7 @@ using virtualbox 2 partitions each of size 300 MB were added to the vagrant inst
 
 <details>
 <summary>lsblk</summary>
-<p> <img src=""> </p>
+<p> <img src="https://github.com/theJaxon/RedHatAdmin/blob/master/etc/Admin%202/day%205/Lab/28.png"> </p>
 </details>
 
 29. Initialize your Linux LVM partitions as physical volumes with the `pvcreate` command. You can use the pvdisplay command to verify that the partitions have been initialized as physical volumes.
