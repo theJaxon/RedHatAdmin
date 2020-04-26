@@ -1,6 +1,6 @@
 # Day 4 Lab: 
 
-### Part 1 [Networking]:
+### Part :one: [Networking]:
 
 1. Display your MAC address by 2 different ways.
 
@@ -78,7 +78,7 @@ vi /etc/hosts and replace the old hostname with the new hostname there too
 
 --- 
 
-### Part 2 [Users & Group permissions]:
+### Part :two: [Users & Group permissions]:
 
 1. Using the useradd command, add accounts for the following users in your system: user1, user2, user3, user4, user5, user6 and user7. Remember to give each user a password.
 
@@ -246,3 +246,176 @@ udo chmod g+r+w test2
 
 15. set the the owning group as the owning group of any newly created file in that directory.
 `sudo chown :sales .`
+
+---
+
+### Part :three: [yum & RPM]:
+> Section 1 (yum):
+
+13. Attempt to run the command gnuplot. You should find that it is not installed.
+
+```bash
+[vagrant@CentOS-7 ~]$ gnuplot
+-bash: gnuplot: command not found
+```
+
+14. Search for the plotting packages.
+```bash
+[vagrant@CentOS-7 ~]$ yum search gnuplot
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+ * base: rep-centos-il.upress.io
+ * extras: rep-centos-il.upress.io
+ * updates: rep-centos-il.upress.io
+============================= N/S matched: gnuplot =============================
+emacs-gnuplot.noarch : Emacs bindings for the gnuplot main application
+emacs-gnuplot-el.noarch : Emacs bindings for the gnuplot main application
+gnuplot-common.x86_64 : The common gnuplot parts
+gnuplot-doc.noarch : Documentation fo bindings for the gnuplot main application
+gnuplot-latex.noarch : Configuration for LaTeX typesetting using gnuplot
+gnuplot.x86_64 : A program for plotting mathematical expressions and data
+gnuplot-minimal.x86_64 : Minimal version of program for plotting mathematical
+                       : expressions and data
+
+  Name and summary matches only, use "search all" for everything.
+```
+
+15. Find out more information about the gunuplot package.
+
+```bash
+
+vagrant@CentOS-7 ~]$ yum info gnuplot
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: rep-centos-il.upress.io
+ * extras: rep-centos-il.upress.io
+ * updates: rep-centos-il.upress.io
+Available Packages
+Name        : gnuplot
+Arch        : x86_64
+Version     : 4.6.2
+Release     : 3.el7
+Size        : 644 k
+Repo        : base/7/x86_64
+Summary     : A program for plotting mathematical expressions and data
+URL         : http://www.gnuplot.info/
+License     : gnuplot and MIT
+Description : Gnuplot is a command-line driven, interactive function plotting
+            : program especially suited for scientific data representation.
+            : Gnuplot can be used to plot functions and data points in both two
+            : and three dimensions and in many different formats.
+            : 
+            : Install gnuplot if you need a graphics package for scientific data
+            : representation.
+```
+
+16. Install the gnuplot package.
+
+```bash
+sudo yum install gnuplot
+```
+
+17. Attempt to remove the gnuplot package, but state how many packages would be removed
+
+Only 1 package which is the gnuplot itself
+```bash
+[vagrant@CentOS-7 ~]$ sudo yum remove gnuplot
+Loaded plugins: fastestmirror
+Resolving Dependencies
+--> Running transaction check
+---> Package gnuplot.x86_64 0:4.6.2-3.el7 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package           Arch             Version               Repository       Size
+================================================================================
+Removing:
+ gnuplot           x86_64           4.6.2-3.el7           @base           1.5 M
+
+Transaction Summary
+================================================================================
+Remove  1 Package
+
+Installed size: 1.5 M
+Is this ok [y/N]: 
+
+```
+
+18. Attempt to remove the gunplot-common package but say how many packages would be removed
+
+1 package and 1 dependecy
+
+```bash
+[vagrant@CentOS-7 ~]$ sudo yum remove gnuplot-common.x86_64
+Loaded plugins: fastestmirror
+Resolving Dependencies
+--> Running transaction check
+---> Package gnuplot-common.x86_64 0:4.6.2-3.el7 will be erased
+--> Processing Dependency: gnuplot-common = 4.6.2-3.el7 for package: gnuplot-4.6.2-3.el7.x86_64
+--> Running transaction check
+---> Package gnuplot.x86_64 0:4.6.2-3.el7 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch           Version              Repository     Size
+================================================================================
+Removing:
+ gnuplot-common         x86_64         4.6.2-3.el7          @base         1.4 M
+Removing for dependencies:
+ gnuplot                x86_64         4.6.2-3.el7          @base         1.5 M
+
+Transaction Summary
+================================================================================
+Remove  1 Package (+1 Dependent package)
+
+Installed size: 2.9 M
+Is this ok [y/N]: 
+```
+
+---
+
+> Section 2 (RPM):
+19. List all installed packages in your system.
+
+`rpm -qa`
+
+20. View the files in the initscripts package.
+
+`rpm -ql initscripts`
+
+21. Get general information about bash rpm.
+
+`rpm -qi bash`
+
+22. Have the files from the pam package changed since it was installed?
+
+```bash
+[vagrant@CentOS-7 ~]$ rpm -V pam 
+....L....  c /etc/pam.d/fingerprint-auth
+....L....  c /etc/pam.d/password-auth
+....L....  c /etc/pam.d/postlogin
+....L....  c /etc/pam.d/smartcard-auth
+....L....  c /etc/pam.d/system-auth
+..?......  c /etc/security/opasswd
+..?......    /usr/sbin/unix_update
+
+```
+
+23. Which installed packages have gnome in their names?
+This is CentOS running on vagrant so running `rpm -qa | grep gnome` yields nothing
+
+24. Install any uninstalled package from RH Enterprise Linux cds
+
+No idea about the cds unfortunately
+
+The remaining steps about adding a repo is usually done during any docker installation
+
+```bash
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+```
