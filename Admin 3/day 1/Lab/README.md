@@ -1,4 +1,4 @@
-# Day :one: Lab:
+# Day 1 Lab:
 [![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 ### Part 1 [SELinux]:
@@ -78,7 +78,7 @@ mv /root/resolv.conf /etc/
 
 ---
 
-### Part 1 [OpenSSH]:
+### Part 2 [OpenSSH]:
 
 11- Configure OpenSSH to allow pulic key-based login credentials
 ```bash
